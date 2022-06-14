@@ -72,6 +72,34 @@ CREATE TABLE "UnidadFormacion" (
   "semestre" SMALLINT NOT NULL
 );
 
+-- 13 --
+
+CREATE TYPE STATUSPERIODO AS ENUM ('actual', 'pasado');
+
+CREATE TABLE "Periodo" (
+  "idPeriodo" SERIAL PRIMARY KEY,
+  "numero" SMALLINT NOT NULL,
+  "fechaInicial" TIMESTAMP NOT NULL,
+  "fechaFinal" TIMESTAMP NOT NULL,
+  "status" STATUSPERIODO NOT NULL
+);
+
+-- 14 --
+
+CREATE TABLE "HorarioDisponiblePeriodo" (
+  "idHorarioDisponiblePeriodo" SERIAL PRIMARY KEY,
+  "idAsesor" VARCHAR(10) NOT NULL,
+  "idPeriodo" INTEGER NOT NULL,
+
+  FOREIGN KEY ("idAsesor") 
+  REFERENCES "Usuario" ("idUsuario")
+  ON DELETE CASCADE,
+
+  FOREIGN KEY ("idPeriodo") 
+  REFERENCES "Periodo" ("idPeriodo")
+  ON DELETE CASCADE
+);
+
 -- 5.1 --
 
 CREATE TYPE STATUSASESORIA AS ENUM ('reservada', 'confirmada', 'finalizada', 'cancelada');
@@ -215,34 +243,6 @@ CREATE TABLE "Preferencia" (
   ON DELETE CASCADE
 );
 
--- 13 --
-
-CREATE TYPE STATUSPERIODO AS ENUM ('actual', 'pasado');
-
-CREATE TABLE "Periodo" (
-  "idPeriodo" SERIAL PRIMARY KEY,
-  "numero" SMALLINT NOT NULL,
-  "fechaInicial" TIMESTAMP NOT NULL,
-  "fechaFinal" TIMESTAMP NOT NULL,
-  "status" STATUSPERIODO NOT NULL
-);
-
--- 14 --
-
-CREATE TABLE "HorarioDisponiblePeriodo" (
-  "idHorarioDisponiblePeriodo" SERIAL PRIMARY KEY,
-  "idAsesor" VARCHAR(10) NOT NULL,
-  "idPeriodo" INTEGER NOT NULL,
-
-  FOREIGN KEY ("idAsesor") 
-  REFERENCES "Usuario" ("idUsuario")
-  ON DELETE CASCADE,
-
-  FOREIGN KEY ("idPeriodo") 
-  REFERENCES "Periodo" ("idPeriodo")
-  ON DELETE CASCADE
-);
-
 -- 15 --
 
 CREATE TYPE STATUSHORARIO AS ENUM ('disponible', 'bloqueada', 'reservada', 'finalizada');
@@ -272,7 +272,7 @@ CREATE TABLE "AsesoriaImagen" (
 );
 
 -- 18 --
-
+ñ
 CREATE TYPE STATUSPOLITICA AS ENUM ('vigente', 'deprecado', 'en revision');
 
 CREATE TABLE "Politica" (
