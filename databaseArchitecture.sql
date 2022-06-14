@@ -72,6 +72,40 @@ CREATE TABLE "UnidadFormacion" (
   "semestre" SMALLINT NOT NULL
 );
 
+-- 5.1 --
+
+CREATE TYPE STATUSASESORIA AS ENUM ('reservada', 'confirmada', 'finalizada', 'cancelada');
+-- reservada es antes de la confirmación de PAE
+-- confirmada es después de la confirmación de PAE
+-- cancelada es cuando el asesor/asesorado cancelo la asesoria o PAE ha rechazado la solicitud
+
+CREATE TABLE "Asesoria" (
+  "idAsesoria" SERIAL PRIMARY KEY,
+  "idAsesor" VARCHAR(10) NOT NULL,
+  "idAsesorado" VARCHAR(10) NOT NULL,
+  "idUF" VARCHAR(50) NOT NULL,
+  "status" STATUSASESORIA NOT NULL,
+  "descripcionDuda" TEXT,
+  "lugar" TEXT,
+  "idHorarioDisponible" INTEGER NOT NULL,
+
+  FOREIGN KEY ("idAsesor") 
+  REFERENCES "Usuario" ("idUsuario")
+  ON DELETE CASCADE,
+  
+  FOREIGN KEY ("idAsesorado") 
+  REFERENCES "Usuario" ("idUsuario")
+  ON DELETE CASCADE,
+
+  FOREIGN KEY ("idUF") 
+  REFERENCES "UnidadFormacion" ("idUF")
+  ON DELETE CASCADE,
+  
+  FOREIGN KEY ("idHorarioDisponible") 
+  REFERENCES "HorarioDisponible" ("idHorarioDisponible")
+  ON DELETE CASCADE
+);
+
 -- 6 --
 
 CREATE TABLE "AsesorUnidadFormacion" (
@@ -225,38 +259,6 @@ CREATE TABLE "HorarioDisponible" (
 );
 
 -- 16 --
-
-CREATE TYPE STATUSASESORIA AS ENUM ('reservada', 'confirmada', 'finalizada', 'cancelada');
--- reservada es antes de la confirmación de PAE
--- confirmada es después de la confirmación de PAE
--- cancelada es cuando el asesor/asesorado cancelo la asesoria o PAE ha rechazado la solicitud
-
-CREATE TABLE "Asesoria" (
-  "idAsesoria" SERIAL PRIMARY KEY,
-  "idAsesor" VARCHAR(10) NOT NULL,
-  "idAsesorado" VARCHAR(10) NOT NULL,
-  "idUF" VARCHAR(50) NOT NULL,
-  "status" STATUSASESORIA NOT NULL,
-  "descripcionDuda" TEXT,
-  "lugar" TEXT,
-  "idHorarioDisponible" INTEGER NOT NULL,
-
-  FOREIGN KEY ("idAsesor") 
-  REFERENCES "Usuario" ("idUsuario")
-  ON DELETE CASCADE,
-  
-  FOREIGN KEY ("idAsesorado") 
-  REFERENCES "Usuario" ("idUsuario")
-  ON DELETE CASCADE,
-
-  FOREIGN KEY ("idUF") 
-  REFERENCES "UnidadFormacion" ("idUF")
-  ON DELETE CASCADE,
-  
-  FOREIGN KEY ("idHorarioDisponible") 
-  REFERENCES "HorarioDisponible" ("idHorarioDisponible")
-  ON DELETE CASCADE
-);
 
 -- 17 --
 
