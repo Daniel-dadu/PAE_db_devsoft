@@ -736,9 +736,6 @@ BEGIN
 END;
 $func$;
 
-SELECT * FROM get_allAsesorias(2, 2022);
-DROP FUNCTION get_allAsesorias;
-
 -- Obtención de la información de una asesoría, a partir del idUsuario, día, mes, anio
 CREATE OR REPLACE FUNCTION get_informacionAsesoria(
   idUsuario VARCHAR(10),
