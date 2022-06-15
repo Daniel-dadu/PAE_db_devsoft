@@ -1576,33 +1576,6 @@ INSERT INTO "Pregunta" ("idPregunta","idEncuesta","tipo","pregunta","opcionesRes
   (DEFAULT, 2, 'cerrada', '¿Qué tanto dominio del tema tiene asesor?', '1,2,3,4,5'),
   (DEFAULT, 2, 'abierta', '¿Tienes algún comentario extra sobre la asesoría?', NULL);
 
--- INSERTAMOS AL SUPER USUARIO DIRECTIVO
-CALL registro_directivo(
-  'L00000001', 
-'e491ff9f556e10eff26bef77c627cc5783dfcee8e23ab6fd04da5124f73246a579d152e5bf3048db5da923f3942915ceb34af9ec5c740ec2a198ac121481a665', 
-  'eaf1961e64647e5b', 
-  'Directivo',
-  'SuperUsuario',
-  null,
-  null,
-  null
-);
-
--- INSERTANDO EL ASESOR POR DEFECTO
-CALL registro_datosperfil_asesor(
-  'A00000000', 
-  '5c8f26561d998ea232ff8514bf90d37b09360deda79a091b1876b3526011226a8f3953564fdf14f92e9f2daf0f45d64982dbb555f18e582e4b584f2ee927a635', 
-  '0e6969b8083e7a3f', 
-  'Asesor', 
-  'Sin confirmar', 
-  null, 
-  null,
-  null,
-  'ITC',
-  '', 
-  1
-);
-
 -- INSERTANDO LAS CARRERAS
 
 INSERT INTO public."Carrera" ("idCarrera", "nombreCarrera") VALUES ('ITC', 'Ingeniería en Tecnologías Computacionales');
@@ -4713,6 +4686,34 @@ INSERT INTO public."UnidadFormacionCarrera" ("idUF", "idCarrera") VALUES ('OP300
 -- INSERTANDO LA POLÍTICA POR DEFECTO
 
 INSERT INTO public."Politica" ("idPolitica", titulo, descripcion, "fechaCreacion", "fechaUltimoCambio", status) VALUES (1, 'Términos y condiciones DE PRUEBA', 'Esta información la debe proporcionar PAE. \n Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus soluta nisi cupiditate error quo ut magnam rerum expedita eius. Accusantium nisi ad, consequatur reprehenderit veniam impedit temporibus esse optio neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo id iusto soluta neque explicabo? In quam enim repellendus eaque expedita nisi adipisci nihil optio fugit laborum, cupiditate iusto asperiores quaerat, praesentium totam! Possimus voluptatibus reprehenderit animi beatae itaque quaerat nemo. Atque, consectetur ea incidunt maxime perferendis architecto, dolorum veritatis hic illo iste voluptas cumque eos. Nobis, reiciendis. Ea dignissimos aspernatur numquam dolorum enim veritatis corporis ut? Debitis aliquid, facilis sunt quod atque quae adipisci veritatis perspiciatis vero nihil molestiae iure recusandae perferendis ratione sapiente beatae earum ipsum ullam dignissimos similique repellat libero! Quaerat, debitis ab facilis neque autem atque alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi assumenda ab quis cupiditate vero a dolores architecto illo? Minus vel nihil cumque consectetur doloribus illo obcaecati alias neque, possimus pariatur non magnam nisi, minima voluptate fugit rerum aperiam nostrum vero sapiente omnis laboriosam voluptatum. In ea quos sint aperiam temporibus eligendi qui fugit quibusdam aut! Reiciendis asperiores dolores sed quo animi qui incidunt placeat a repellat ullam quibusdam, ab autem aliquid distinctio! Omnis fugiat eveniet possimus, ut rem consequatur porro? Ipsam cupiditate odio nihil ratione eveniet qui iste sunt sit ullam velit adipisci corporis provident odit facilis totam sint ipsa quod, natus unde aliquam voluptate. Necessitatibus eligendi magni fugiat! A quasi eligendi ea, vero fugiat blanditiis rem nobis eum cupiditate maxime totam facere tenetur harum suscipit eaque voluptatum aliquam? Dolores vel voluptate aliquid veritatis distinctio quibusdam tempore unde autem, aperiam voluptates dicta delectus quis ad illo iusto, voluptatibus eos aspernatur id! Nulla iusto cumque, mollitia accusamus ut voluptas. Illum sed quas veniam iure temporibus sapiente minima aliquid praesentium quaerat harum enim quia ratione, exercitationem molestias illo. Ea tempore corrupti debitis quidem quisquam voluptatum perferendis in dolore, adipisci dignissimos doloribus, totam quod ut nisi soluta reiciendis quam et molestias. Nobis beatae quas tenetur vel eius porro et cumque sunt dicta aut recusandae quidem reprehenderit voluptate exercitationem illo, nulla explicabo iure dignissimos in! Dolor illo accusamus aperiam atque deserunt ad numquam aspernatur minima, consectetur soluta aliquid ratione blanditiis quam eveniet, enim, sit labore? Sequi in quam facilis minus eius tempora nulla explicabo perspiciatis sunt magnam, veniam, molestias quo sit autem. Cumque eligendi quos veniam omnis soluta laudantium? Ad, ex assumenda natus similique voluptatibus odit totam amet quasi maxime! Alias ut voluptatum in ipsam pariatur cumque excepturi itaque rem, ratione commodi vel fuga corporis id temporibus amet facere aliquid molestias maxime ea quidem neque, dignissimos dicta obcaecati quisquam? Culpa impedit officiis unde ut labore ex error excepturi exercitationem voluptate alias, nisi nemo iusto modi ratione commodi? Ratione molestias consectetur fugit, iure, suscipit id sed quibusdam expedita a repudiandae quisquam sint deserunt magnam harum voluptatem! Commodi illo eveniet inventore labore deserunt eius animi quis obcaecati consequuntur quasi mollitia, cupiditate incidunt voluptatibus atque. Voluptatem totam adipisci exercitationem sed error at fuga sint voluptatibus itaque laborum esse, sequi alias temporibus quam nesciunt hic nisi dolores quaerat atque, optio voluptas! Optio, culpa! Dicta esse reiciendis fugiat in similique, tempore laudantium, sit eos ut corrupti soluta officia atque! Qui nemo similique ullam dignissimos assumenda fugit illum ad asperiores nihil, quas labore, adipisci dolore repellat deserunt non exercitationem. Officia accusantium nesciunt cum amet voluptatum quibusdam earum in saepe, soluta laudantium officiis ducimus. Earum impedit sed reprehenderit explicabo nisi, provident eligendi enim culpa, veritatis maxime cupiditate. Necessitatibus ab perspiciatis hic cum doloribus. Debitis, laudantium expedita! Quod quo quibusdam, labore fugit nulla tenetur excepturi nemo? Sapiente maiores itaque incidunt atque repudiandae quod nulla rem exercitationem, libero voluptatem perspiciatis deserunt. Deserunt ipsa, aut nisi dicta voluptate quidem, nostrum ipsam minima, eveniet optio aliquid. Dolore dignissimos optio animi exercitationem velit distinctio dolorem eos?', '2022-05-22 23:45:06.790842', '2022-05-22 23:45:06.790842', 'vigente');
+
+
+-- INSERTAMOS AL SUPER USUARIO DIRECTIVO
+CALL registro_directivo(
+  'L00000001', 
+'e491ff9f556e10eff26bef77c627cc5783dfcee8e23ab6fd04da5124f73246a579d152e5bf3048db5da923f3942915ceb34af9ec5c740ec2a198ac121481a665', 
+  'eaf1961e64647e5b', 
+  'Directivo',
+  'SuperUsuario',
+  null,
+  null,
+  null
+);
+
+-- INSERTANDO EL ASESOR POR DEFECTO
+CALL registro_datosperfil_asesor(
+  'A00000000', 
+  '5c8f26561d998ea232ff8514bf90d37b09360deda79a091b1876b3526011226a8f3953564fdf14f92e9f2daf0f45d64982dbb555f18e582e4b584f2ee927a635', 
+  '0e6969b8083e7a3f', 
+  'Asesor', 
+  'Sin confirmar', 
+  null, 
+  null,
+  null,
+  'ITC',
+  '', 
+  1
+);
 
 ---------------- IMPORTANTE ------------------
 
