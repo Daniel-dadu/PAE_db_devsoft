@@ -272,7 +272,7 @@ CREATE TABLE "AsesoriaImagen" (
 );
 
 -- 18 --
-ñ
+
 CREATE TYPE STATUSPOLITICA AS ENUM ('vigente', 'deprecado', 'en revision');
 
 CREATE TABLE "Politica" (
