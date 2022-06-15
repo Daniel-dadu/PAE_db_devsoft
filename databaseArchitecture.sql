@@ -100,6 +100,21 @@ CREATE TABLE "HorarioDisponiblePeriodo" (
   ON DELETE CASCADE
 );
 
+-- 15 --
+
+CREATE TYPE STATUSHORARIO AS ENUM ('disponible', 'bloqueada', 'reservada', 'finalizada');
+
+CREATE TABLE "HorarioDisponible" (
+  "idHorarioDisponible" SERIAL PRIMARY KEY,
+  "idHorarioDisponiblePeriodo" INTEGER NOT NULL,
+  "fechaHora" TIMESTAMP NOT NULL,
+  "status" STATUSHORARIO NOT NULL,
+
+  FOREIGN KEY ("idHorarioDisponiblePeriodo") 
+  REFERENCES "HorarioDisponiblePeriodo" ("idHorarioDisponiblePeriodo")
+  ON DELETE CASCADE
+);
+
 -- 5.1 --
 
 CREATE TYPE STATUSASESORIA AS ENUM ('reservada', 'confirmada', 'finalizada', 'cancelada');
@@ -240,21 +255,6 @@ CREATE TABLE "Preferencia" (
     
   FOREIGN KEY ("idUsuario") 
   REFERENCES "Usuario" ("idUsuario")
-  ON DELETE CASCADE
-);
-
--- 15 --
-
-CREATE TYPE STATUSHORARIO AS ENUM ('disponible', 'bloqueada', 'reservada', 'finalizada');
-
-CREATE TABLE "HorarioDisponible" (
-  "idHorarioDisponible" SERIAL PRIMARY KEY,
-  "idHorarioDisponiblePeriodo" INTEGER NOT NULL,
-  "fechaHora" TIMESTAMP NOT NULL,
-  "status" STATUSHORARIO NOT NULL,
-
-  FOREIGN KEY ("idHorarioDisponiblePeriodo") 
-  REFERENCES "HorarioDisponiblePeriodo" ("idHorarioDisponiblePeriodo")
   ON DELETE CASCADE
 );
 
