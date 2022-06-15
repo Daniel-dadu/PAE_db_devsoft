@@ -1576,7 +1576,32 @@ INSERT INTO "Pregunta" ("idPregunta","idEncuesta","tipo","pregunta","opcionesRes
   (DEFAULT, 2, 'cerrada', '¿Qué tanto dominio del tema tiene asesor?', '1,2,3,4,5'),
   (DEFAULT, 2, 'abierta', '¿Tienes algún comentario extra sobre la asesoría?', NULL);
 
+-- INSERTAMOS AL SUPER USUARIO DIRECTIVO
+CALL registro_directivo(
+  'L00000001', 
+'e491ff9f556e10eff26bef77c627cc5783dfcee8e23ab6fd04da5124f73246a579d152e5bf3048db5da923f3942915ceb34af9ec5c740ec2a198ac121481a665', 
+  'eaf1961e64647e5b', 
+  'Directivo',
+  'SuperUsuario',
+  null,
+  null,
+  null
+);
 
+-- INSERTANDO EL ASESOR POR DEFECTO
+CALL registro_datosperfil_asesor(
+  'A00000000', 
+  '5c8f26561d998ea232ff8514bf90d37b09360deda79a091b1876b3526011226a8f3953564fdf14f92e9f2daf0f45d64982dbb555f18e582e4b584f2ee927a635', 
+  '0e6969b8083e7a3f', 
+  'Asesor', 
+  'Sin confirmar', 
+  null, 
+  null,
+  null,
+  'ITC',
+  '', 
+  1
+);
 
 ---------------- IMPORTANTE ------------------
 
